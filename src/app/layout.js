@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
 import Providers from "./Providers";
@@ -15,10 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cn("dark", inter.className)}>
-        <Providers>
-          <Navbar />
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
         <div className="sticky inset-0 -z-20 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#020817_60%,#08205D_100%)]"></div>
       </body>
     </html>

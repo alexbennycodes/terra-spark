@@ -23,7 +23,8 @@
     "react-infinite-scroll-hook": "^4.1.1",
     "react-simple-maps": "^3.0.0",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

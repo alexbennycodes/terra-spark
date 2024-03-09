@@ -1,14 +1,7 @@
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select";
 
-const Navbar = () => {
+const Navbar = ({ onSearch = () => {} }) => {
   return (
     <div className="fixed inset-x-0 top-0 w-full border-b border-[#FFFFFF]/[0.16] py-4 px-4 backdrop-blur-lg z-50">
       <div
@@ -52,6 +45,7 @@ const Navbar = () => {
           placeholder="Search countries..."
           className="md:w-[25vw]"
           endIcon={<Search size={18} className="text-muted-foreground" />}
+          onChange={onSearch}
         />
       </div>
     </div>
