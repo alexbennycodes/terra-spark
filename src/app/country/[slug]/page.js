@@ -6,7 +6,9 @@ import React from "react";
 
 const getSpecificCountry = async (code) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/country/${code}`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/api/country/${code}`
+    );
 
     if (!res.ok) return { error: await res.json() };
     const data = await res.json();
