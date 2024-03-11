@@ -11,6 +11,7 @@ export const Card = ({
   childrenClassName,
   imageClassName,
   className,
+  ...props
 }) => {
   const ref = useRef(null);
 
@@ -52,9 +53,10 @@ export const Card = ({
       onMouseEnter={handleMouseEnter}
       ref={ref}
       className={cn(
-        "h-[250px] bg-transparent rounded-lg overflow-hidden group/card relative",
+        "h-[250px] bg-transparent rounded-t-xl overflow-hidden group/card relative cursor-pointer",
         className
       )}
+      {...props}
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -63,7 +65,7 @@ export const Card = ({
           whileHover={direction}
           exit="exit"
         >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
+          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-background/40 z-10 transition duration-500" />
           <motion.div
             variants={variants}
             className="h-full w-full relative bg-gray-50 dark:bg-black"
@@ -83,7 +85,8 @@ export const Card = ({
               src={imageUrl}
             />
           </motion.div>
-          <motion.div
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
+          <div
             variants={textVariants}
             transition={{
               duration: 0.5,
@@ -95,7 +98,7 @@ export const Card = ({
             )}
           >
             {children}
-          </motion.div>
+          </div>
         </motion.div>
       </AnimatePresence>
     </motion.div>

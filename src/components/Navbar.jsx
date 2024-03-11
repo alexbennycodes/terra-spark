@@ -1,15 +1,18 @@
+"use client";
+
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
+import Link from "next/link";
 
 const Navbar = ({ onSearch = () => {} }) => {
   return (
     <div className="fixed inset-x-0 top-0 w-full border-b border-[#FFFFFF]/[0.16] py-4 px-4 backdrop-blur-lg z-50">
       <div
-        className="flex justify-between text-white max-w-7xl gap-4 mx-auto rounded-lg inset-x-0 flex-wrap
+        className="flex justify-between text-white container gap-4 mx-auto rounded-lg inset-x-0 flex-wrap
       "
       >
         <div className="flex gap-2 items-center">
-          <a
+          <Link
             className="flex items-center space-x-2 flex-shrink-0 relative z-50"
             href="/"
           >
@@ -39,7 +42,7 @@ const Navbar = ({ onSearch = () => {} }) => {
             <span className="text-lg text-[#CCCCCC] font-medium">
               TerraSpark
             </span>
-          </a>
+          </Link>
         </div>
         <Input
           placeholder="Search countries..."

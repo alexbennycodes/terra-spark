@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { Card } from "@/components/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import Link from "next/link";
 import { useCallback, useRef, useState } from "react";
 import { useDebounce } from "use-debounce";
 
@@ -70,7 +71,7 @@ export default function Home() {
     <>
       <Navbar onSearch={handleQueryChange} />
 
-      <main className="flex min-h-screen flex-col items-center justify-between pt-36">
+      <main className="flex min-h-screen flex-col items-center justify-between py-36">
         {error && (
           <div className="mx-auto w-full container mb-8">
             <div className="bg-red-50 border-l-8 border-red-500 rounded-lg overflow-hidden">
@@ -108,10 +109,12 @@ export default function Home() {
         <div className="container grid md:grid-cols-2 xl:grid-cols-3 gap-10">
           {countries?.pages?.map((page) =>
             page.results.map((country) => (
-              <Card imageUrl={country.flags.svg} key={country.name?.common}>
-                <p className="font-bold text-xl">{country.name?.common}</p>
-                <p className="font-normal text-sm">{country.region}</p>
-              </Card>
+              <Link key={country.cioc} href={`/country/${country.cioc}`}>
+                <Card imageUrl={country.flags.svg}>
+                  <p className="font-bold text-xl">{country.name?.common}</p>
+                  <p className="font-normal text-sm">{country.region}</p>
+                </Card>
+              </Link>
             ))
           )}
           {hasNextPage && (
