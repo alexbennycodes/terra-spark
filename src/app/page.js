@@ -107,12 +107,29 @@ export default function Home() {
           </div>
         )}
         <div className="container grid md:grid-cols-2 xl:grid-cols-3 gap-10">
-          {countries?.pages?.map((page) =>
+          {countries?.pages?.map((page, i) =>
             page.results.map((country) => (
-              <Link key={country.cioc} href={`/country/${country.cioc}`}>
+              <Link
+                key={country.cca3}
+                href={`/country/${country.cca3}`}
+                data-scroll
+                data-scroll-speed="0.3"
+              >
                 <Card imageUrl={country.flags.svg}>
-                  <p className="font-bold text-xl">{country.name?.common}</p>
-                  <p className="font-normal text-sm">{country.region}</p>
+                  <p
+                    className="font-bold text-xl"
+                    data-scroll
+                    data-scroll-speed="0.7"
+                  >
+                    {country.name?.common}
+                  </p>
+                  <p
+                    className="font-normal text-sm"
+                    data-scroll
+                    data-scroll-speed="0.7"
+                  >
+                    {country.region}
+                  </p>
                 </Card>
               </Link>
             ))

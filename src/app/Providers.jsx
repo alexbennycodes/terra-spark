@@ -1,6 +1,7 @@
 "use client";
 
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,6 +15,13 @@ const queryClient = new QueryClient({
 });
 
 function Providers({ children }) {
+  useEffect(() => {
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
+      const locomotiveScroll = new LocomotiveScroll({ smooth: true });
+    })();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
